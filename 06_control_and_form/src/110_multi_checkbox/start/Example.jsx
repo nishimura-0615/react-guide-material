@@ -12,7 +12,9 @@ const Example = () => {
 
   const handleChange = (e) => {
     const newFruits = fruits.map((fruit) => {
+      //Reactのお作法的にスプレッド演算子でオブジェクトを定義するのが望ましい
       const newFruit = { ...fruit };
+      //もし、フルーツの値が一致する場合は該当するフルーツの種類にチェックする
       if (newFruit.label === e.target.value) {
         newFruit.checked = !fruit.checked;
       }
@@ -38,6 +40,7 @@ const Example = () => {
     // filter + reduceバージョン
     let sumVal = newFruits
       .filter((fruit) => fruit.checked)
+      // reduce:配列の要素をひとつにまとめる
       .reduce((sumVal, fruit) => sumVal + fruit.value, 0);
     setSum(sumVal);
   };
@@ -47,6 +50,7 @@ const Example = () => {
         return (
           <div key={fruit.label}>
             <input
+              //fruitの種類を表示をさせるためにid={fruit.label}を記載
               id={fruit.label}
               type="checkbox"
               value={fruit.label}
