@@ -1,3 +1,11 @@
+// 練習問題
+// 記述を変更し、完成コードと同じ状態になるようにしてください。
+// Q1.FirstButtonのbackgroudをpinkにしてください。
+// Q2.FirstButtonを継承したSecondButtonを作成し、backgroudをredに、colorをwhiteにしてください。{" "}
+// Q3.SecondButtonを継承したThirdButtonを作成し、props.darkがある場合のみbackgroudがblackに、ない場合はgreenになるようにしてください。
+
+
+
 import styled from "styled-components";
 
 const FirstButton = styled.button`
@@ -7,6 +15,15 @@ const FirstButton = styled.button`
   margin: 0.5rem 1rem;
   width: 11rem;
   border: none;
+`;
+
+const SecondButton = styled(FirstButton)`
+  background: red;
+  color: white;
+`;
+
+const ThirdButton = styled(SecondButton)`
+  background: ${({ dark }) => dark ? "black" : "green"};
 `;
 
 const Example = () => {
@@ -28,6 +45,8 @@ const Example = () => {
         </ul>
       </p>
       <FirstButton>ボタン1</FirstButton>
+      <SecondButton>ボタン2</SecondButton>
+      <ThirdButton dark>ボタン3</ThirdButton>
     </>
   );
 };
