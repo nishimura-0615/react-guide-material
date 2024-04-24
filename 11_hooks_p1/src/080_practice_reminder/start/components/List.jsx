@@ -1,19 +1,23 @@
-const List = ({todos, deleteTodo}) => {
-    const complete = (id) => {
-        deleteTodo(id)
-    }
-    return (
-        <div>
-            {todos.map(todo => {
-                return (
-                    <div key={todo.id}>
-                        <button onClick={() => complete(todo.id)}>完了</button>
-                        <span>{todo.content}</span>
-                    </div>
-                )
-            })}
-        </div>
-    );
-}
+// Listコンポーネント内の各項目をItemコンポーネントに分離しましょう。
 
-export default List;
+// const List = ({todos, deleteTodo}) => {
+//     const complete = (id) => {
+//         deleteTodo(id)
+//     }
+//     return (
+//         <div>
+//             {todos.map(todo => {
+//                 return (
+//                     <div key={todo.id}>
+//                         <button onClick={() => complete(todo.id)}>完了</button>
+//                         <span>{todo.content}</span>
+//                     </div>
+//                 )
+//             })}
+//         </div>
+//     );
+// }
+
+// export default List;
+
+//回答
