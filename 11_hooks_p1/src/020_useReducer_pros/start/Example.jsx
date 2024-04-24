@@ -2,10 +2,13 @@ import { useReducer, useState } from "react";
 
 // useState:状態の更新の仕方は利用側に託す。
 // useReducer:状態の更新の仕方も状態側で担当する。
+// useStateのみ記載しているとstateが更新された時にコードの品質が変わってしまうので
+// より保守性を持たせるために状態の方から制御をかけるためにuseReduceの記載があると保守性が保たれる。
 
 // 状態と処理の分離
 // useState: コンポーネントで更新用の処理を保持
 // useReducer: stateと一緒に更新用の処理を保持
+
 
 // 純粋性（純粋関数）
 // 特定の引数に特定の戻り値
@@ -24,7 +27,7 @@ const reducer = (prev, { type, step }) => {
 const Example = () => {
   const [state, setState] = useState(0);
   const [rstate, dispatch] = useReducer(reducer, 0);
-  
+
   const step = 2;
   const countUp = () => {
     setState((prev) => {
