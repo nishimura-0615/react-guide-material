@@ -1,6 +1,9 @@
 import React, { useCallback, useState } from "react";
 import Child from "./Child";
 
+// useMemo 値をメモ化
+// React.memo コンポーネントをメモ化
+
 const Example = () => {
   console.log("Parent render");
   const [countA, setCountA] = useState(0);
@@ -9,7 +12,7 @@ const Example = () => {
   const clickHandler = useCallback(() => {
     setCountB(countB + 1);
   },[countB]);
-  
+
   return (
     <div className="parent">
       <div>
@@ -34,4 +37,3 @@ const Example = () => {
 };
 
 export default Example;
-

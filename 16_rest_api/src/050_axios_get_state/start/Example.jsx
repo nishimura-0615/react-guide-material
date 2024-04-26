@@ -1,5 +1,33 @@
-const Example = () => {
-  return <></>;
-};
+// POINT サーバーから取得したデータを画面表示
 
-export default Example;
+import { useEffect, useState } from "react";
+import axios from "axios";
+
+const Example = () => {
+
+  const [ users, setUsers ] = useState()
+
+  useEffect(() => {
+    const getUser = async () => {
+      const res = await axios.get('http://localhost:3003/user')
+      setUsers(res.data);
+    }
+    getUser();
+  }, []);
+
+ {/* hobby:soccer,baseballと表示させるために.joinを使用 */}
+
+  return (
+    <div>
+      {users?.map(user => {
+        return(
+          <div key={user.id}>
+            <h3>{user.username}</h3>
+            <p>age: {user.age}</p>
+            <p>hobby: { user.hobbies.join(',') }</p>
+          </div>
+        )
+      })}
+    </div>
+  )
+};

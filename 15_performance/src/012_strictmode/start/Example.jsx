@@ -1,9 +1,18 @@
-import { useState } from "react";
+//strictmodeの性質上、1度reactを空で動作の実行をする
+import { useState, StrictMode } from "react";
 import "./Example.css";
+
+const StrictComp = () => {
+  return (
+    <StrictMode>
+      <Example />
+    </StrictMode>
+  )
+}
 
 const Example = () => {
   console.log("render");
-  
+
   const [countA, setCountA] = useState({
     val: 0
   });
@@ -14,7 +23,7 @@ const Example = () => {
   const isSame = Object.is("",false);
   const isSameEqual = "" == false;
   console.log(isSameEqual);
-  
+
   return (
     <div className="parent">
       <div>
@@ -38,4 +47,4 @@ const Example = () => {
   );
 };
 
-export default Example;
+export default StrictComp;
