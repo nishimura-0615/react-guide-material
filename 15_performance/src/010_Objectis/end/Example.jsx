@@ -4,7 +4,7 @@ import "./Example.css";
 
 const Example = () => {
   console.log("render");
-  
+
   const [countA, setCountA] = useState({
     val: 0
   });
@@ -15,7 +15,7 @@ const Example = () => {
   const isSame = Object.is("",false);
   const isSameEqual = "" == false;
   console.log(isSameEqual);
-  
+
   return (
     <div className="parent">
       <div>

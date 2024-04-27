@@ -1,3 +1,7 @@
+//JSONとは
+// JavaScriptのデータ定義文を似ているデータを定義する言語
+// .jsonファイルはコメントの記載はできない
+
 const Example = () => {
   const usersData = [
     {
