@@ -6,7 +6,6 @@ const ENDPOINT_URL = 'http://localhost:3003/todo';
 const todoApi = {
   async getAll() {
     const result = await axios.get(ENDPOINT_URL);
-    console.log(result);
     return result.data;
   },
   async post(todo) {
@@ -22,12 +21,5 @@ const todoApi = {
     return result.data;
   },
 };
-
-todoApi.getAll();
-// ホットリロードというreactの機能からリアルタイム更新ができている
-todoApi.post({
-  id: 34324321,
-  content: 'test',
-});
 
 export default todoApi;
