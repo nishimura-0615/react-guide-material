@@ -12,7 +12,6 @@ export default function ArticleForm() {
 
     fetch('/api/article', { method: form.method, body: formData })
       .then((res) => {
-        console.log(res);
         if (!res.ok) {
           return res.json().then((data) => {
             return data.msg;
